@@ -28,7 +28,7 @@ public class LoginServlet extends HttpServlet {
         ResultSet rs = null;
 
         try {
-            // Step 1: Register JDBC Driver
+            
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             // Step 2: Open a connection
