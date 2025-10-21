@@ -28,28 +28,20 @@ public class LoginServlet extends HttpServlet {
         ResultSet rs = null;
 
         try {
-            // Step 1: Register JDBC Driver
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            // Step 2: Open a connection
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/carservice","root","pratik2210");
 
-            // Step 3: Create a SQL statement
             String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, username);
             stmt.setString(2, password);
 
-            // Step 4: Execute the statement
             rs = stmt.executeQuery();
             
-
-            // Step 5: Process the result set
             if (rs.next()) {
-                // User authenticated, redirect to home page or dashboard
                 response.sendRedirect("dashboard.jsp");
             } else {
-                // Authentication failed, redirect back to login page with error message
                 response.sendRedirect("login.jsp");
                 
             }
@@ -57,7 +49,6 @@ public class LoginServlet extends HttpServlet {
             ex.printStackTrace();
             throw new ServletException(ex);
         } finally {
-            // Step 6: Close the connection, statement, and result set
             try {
                 if (rs != null) rs.close();
                 if (stmt != null) stmt.close();
