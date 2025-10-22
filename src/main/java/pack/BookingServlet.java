@@ -1,4 +1,3 @@
-pratik
 package pack;
 import java.io.IOException;
 import java.sql.Connection;
