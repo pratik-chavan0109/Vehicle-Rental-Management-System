@@ -28,6 +28,10 @@ public class LoginServlet extends HttpServlet {
         ResultSet rs = null;
 
         try {
+<<<<<<< HEAD
+=======
+            
+>>>>>>> 119957d98b20932004e967a9396aaae5c349408d
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/carservice","root","pratik2210");
